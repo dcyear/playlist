@@ -58,5 +58,5 @@ def weapiFetch(fullUrl, cookie, body, proxy=""):
                                     cookies=utils.str_cookie_to_dict(cookie),
                                     proxies=proxies)
     if resp:
-        return resp
+        return resp.json()
     return "获取失败"
