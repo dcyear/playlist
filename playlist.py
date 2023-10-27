@@ -45,7 +45,7 @@ def mutil_playlist(cookies: List[str], playlist_id: str):
     pbar.close()
     print(f'播放结束 成功{c}个 总数:{len(cookies)}个')
 
-# 歌单收藏
+# 歌单收藏/取消收藏
 def playlist_favorite(cookie,playlist_id:str):
     uri = "/weapi/playlist/subscribe"
     csrf_value = cryptos.cookie_get_csrf(cookie)
@@ -61,6 +61,7 @@ def playlist_favorite(cookie,playlist_id:str):
         print("收藏", resp)
         return False
     return True
+
 
 
 
