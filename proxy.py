@@ -47,3 +47,6 @@ class PyProxy:
             self.ip_pool = [ProxyIP(ip) for ip in ip_list]
         else:
             raise Exception("Failed to get new IPs")
+
+
+p = PyProxy("66291", bulk_size=500, life=3)

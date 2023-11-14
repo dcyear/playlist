@@ -1,0 +1,66 @@
+### 网易云公司版权服务接口
+
+import cryptos
+
+# 可以获取出总歌曲数和昨日总播放量 30天播放总数
+def report_agency_info(cookie):
+    uri = "/weapi/copyright/workbench/report/agency/info/get"
+    csrf_value = cryptos.cookie_get_csrf(cookie)
+    body_json = {
+        "csrf_token": csrf_value
+    }
+    return cryptos.weapiFetch(cryptos.neteaseHost + uri, cookie, body_json)
+
+# 获取出最佳艺人排名前10
+def report_hot_artist(cookie):
+    uri = "/weapi/copyright/workbench/report/top/hot/artist/list"
+    csrf_value = cryptos.cookie_get_csrf(cookie)
+    body_json = {
+        "csrf_token": csrf_value
+    }
+    return cryptos.weapiFetch(cryptos.neteaseHost + uri, cookie, body_json)
+
+# 获取旗下所有艺人数据
+def report_all_artist(cookie):
+    uri = "/weapi/copyright/workbench/report/artist/list"
+    csrf_value = cryptos.cookie_get_csrf(cookie)
+    body_json = {
+        "artistName": "",
+        "limit": 100,
+        "offset": 0,
+        "orderBy": "playCount",
+        "desc": True,
+        "csrf_token": csrf_value
+    }
+    return cryptos.weapiFetch(cryptos.neteaseHost + uri, cookie, body_json)
+
+# 获取旗下所有歌曲数据 播放量排序
+def report_all_song(cookie):
+    uri = "/weapi/copyright/workbench/report/song/list"
+    csrf_value = cryptos.cookie_get_csrf(cookie)
+    body_json = {
+        "songName": "",
+        "limit": 10,
+        "offset": 0,
+        "orderBy": "playCount",
+        "desc": True,
+        "csrf_token": csrf_value
+    }
+    return cryptos.weapiFetch(cryptos.neteaseHost + uri, cookie, body_json)
+
+
+# 获取收益概况
+def report_income_range(cookie):
+    uri = "/weapi/copyright/workbench/report/income/range/get"
+    csrf_value = cryptos.cookie_get_csrf(cookie)
+    body_json = {
+        "csrf_token": csrf_value
+    }
+    return cryptos.weapiFetch(cryptos.neteaseHost + uri, cookie, body_json)
+
+
+
+
+if __name__ == "__main__":
+    cookie = "_iuqxldmzr_=32; WEVNSM=1.0.0; _ntes_nnid=34664dc369a529a653d8b74b9b8073f8,1698977569511; _ntes_nuid=34664dc369a529a653d8b74b9b8073f8; WNMCID=azezdb.1698977571223.01.0; NMTID=00OOZPZHyd1b6sfkEWVmrUx6KNkrm4AAAGLkvZ4fg; sDeviceId=YD-Mz264zXwhC5FBxBAVVbBmYZcICQ5qPGi; __remember_me=true; __csrf=7c6c1b36a1f5ac3af0d25cacc11c2e54; MUSIC_U=000F768DF0B575AAF21D1B253EA1593F66456321B6C2AF009F70E05A85FE1B9564B83BCB397795911792C8C178C2946947F310A6ED2698EEF443C4BEEA3991CA41BA15C5521CFC5A0C43398E250803C8652530096FA3FB876095F4843CA02EE1D2B98DFAFC77A1EAD9F2039522421A99BC704A2771A2636CD7085CA650A803E158A00272A1D5EF890CF42A79DC5B19831D9FE668CB84C0C95E76F35FD0E92D218E1BEA8A2EF83CEEEC7B556B12603464DD5EB7ACB358FE50D40480ABE237D3FC70A25A6A1256B435855F59F9DC79FC0E26B6CBC2F378CD25A6D4E27D4D8B03BD5C9FF35967CAF850B0929338D3E0C08680A22A5C259E16CB5A11DC5F93DD93EF97CEE37F525927F2CD6209148FAEB5401FF489CCAF46EE26409853E3F5B759CDF1CE8251E95A348F3A9DE990E302CB5E7178D3A558D3F22BA200FB31939AF4FE8BA2928EB6B85963229093B2FB2A70FAAC99C7ECBCD3A6983DE0C01737BF84F674DE16B9378EB2E7595DF535F05847CC70; lng=zh-CN; TOB_COMPANY_ID=eYwGo7xgbgfBgQv17tjJjHVNai9Pu-w02n7I*LRszgY.; WM_TID=TM0Kk%2BUGOopBRURVBRPRjwyQZSoqU8hq; NTES_P_UTID=pyjBqtpOLsAMjPZtSZHUYULDnuYtX1Xh|1699542073;  JSESSIONID-WYYY=qc380tMXjmcDBzmBIUeGfgrXzeqjtT82qe5G7hsn2c6hazcOzTnP0%2FMKwWwo6zcdf2i8QKSFD5AnID0jA%5C%2FMsVBlnOYYpPNtp0h9H%2F5NN1w%2Fe3XsjxBu%2FpGqwR9%2F79a2Q1iy4DkJ4lHvMdhJ1h4sfzWurZD1RI%2F0%2F%2BfehJMJ%2F8EmhYYj%3A1699946926176; WEVNSM=1.0.0; _ntes_nnid=34664dc369a529a653d8b74b9b8073f8,1698977569511; _ntes_nuid=34664dc369a529a653d8b74b9b8073f8; WNMCID=azezdb.1698977571223.01.0; ntes_utid=tid._.76XuN1andOVABlBABQbE3gnEIXrBFDWt._.0; NMTID=00OOZPZHyd1b6sfkEWVmrUx6KNkrm4AAAGLkvZ4fg; sDeviceId=YD-Mz264zXwhC5FBxBAVVbBmYZcICQ5qPGi; __snaker__id=YS6Y06j5XEUpdkq8; YD00000558929251%3AWM_NI=spEEn68UZUrfWq4eyQKsPJoPLEyLC5Q3B7mg3exNseKFmbLC9f%2B0ShxRFwJ%2Flv%2BpWlgUapm8msK9cMyp1gWJa1uO647Y40dO9mXBg1gE7Vv%2B%2BVBbTxZ%2F08J97qz5GTlqNDE%3D; YD00000558929251%3AWM_NIKE=9ca17ae2e6ffcda170e2e6ee84c425af9aa1d4dc7cb2868eb3d84a978f9fb0c139fca6fed9ca5cbaa9e5bbf12af0fea7c3b92ab1b08ba6ed3efc8b96b6f16e95affc86fc5b89ada0abee5c909bb7adc23f93ed8ed8f06df1bbb8aff26f899aa383cf49fbbae5d1d264bc8e8a98c925b0aae591d668a58baf91f034afad85dae247bbb0ff88d642a3efbbb0b540f587fcd1e745fbb398a3e63ba59bf9b7f521e98a8e83d7749af100d9c933f5afb6d6c660b0af82a5c837e2a3; YD00000558929251%3AWM_TID=8b0UpxZOgApBVFARVFfAz3LcgXUQo7OF; NTES_YD_SESS=IwxX.NdmzAlLdwWyRRc7MMJalwRRD9BWP_zi1Z7tNzZ2YtclYUOmhkDYSKuB81O4iFK0tDdb7hzI9BjuFCGySHJqkPLAUZIzn2N3XHXjGYABRkfBfdzSVEIP_0m_.7P1vxNh36thmS49r18pxfZxqSpcv2eD8b_PoKag9ZI8S5LFKigpjniOdhLeLkczS17NA3W0G3N6xP.MADtHiZhTmzrEFDZR3Xgr.e63U4ZdmjGAD; S_INFO=1699428087|0|0&60##|18910763667; __remember_me=true; __csrf=7c6c1b36a1f5ac3af0d25cacc11c2e54; MUSIC_U=000F768DF0B575AAF21D1B253EA1593F66456321B6C2AF009F70E05A85FE1B9564B83BCB397795911792C8C178C2946947F310A6ED2698EEF443C4BEEA3991CA41BA15C5521CFC5A0C43398E250803C8652530096FA3FB876095F4843CA02EE1D2B98DFAFC77A1EAD9F2039522421A99BC704A2771A2636CD7085CA650A803E158A00272A1D5EF890CF42A79DC5B19831D9FE668CB84C0C95E76F35FD0E92D218E1BEA8A2EF83CEEEC7B556B12603464DD5EB7ACB358FE50D40480ABE237D3FC70A25A6A1256B435855F59F9DC79FC0E26B6CBC2F378CD25A6D4E27D4D8B03BD5C9FF35967CAF850B0929338D3E0C08680A22A5C259E16CB5A11DC5F93DD93EF97CEE37F525927F2CD6209148FAEB5401FF489CCAF46EE26409853E3F5B759CDF1CE8251E95A348F3A9DE990E302CB5E7178D3A558D3F22BA200FB31939AF4FE8BA2928EB6B85963229093B2FB2A70FAAC99C7ECBCD3A6983DE0C01737BF84F674DE16B9378EB2E7595DF535F05847CC70; gdxidpyhxdE=7tSNSiIlgpuUGOkvDhRNkePUpLK8CU%5CXL71aoqkNLo0Za7MrtaKiwWhaJ%5CET9g036GddfUnk52H1TL%2BIwtMZPVSUcdNQjX7XHugQR2K3C7yE5udIPQ8iPTjZ2NPPiWVARDrjCS36bVWslZoW02q%5CoMUwTRSOHM1zjMNK%5CAzKpeifZz%2FN%3A1699432295142; NTES_P_UTID=pyjBqtpOLsAMjPZtSZHUYULDnuYtX1Xh|1699542073;  WM_NI=VwTiCLh8lC6qbbSpMAloKezhvp%2FK8O14diWhJCopz6%2B93Jq5VqouvWye4xD%2B%2BCSOXmUQ0HEn3%2F6vJKi9mzPY8df8jG19oOkSSkq4HymdooiWqf%2BpyyqeEcxvMpLk0JtMZmg%3D; WM_NIKE=9ca17ae2e6ffcda170e2e6ee83c1679ceca493b864bce78ba6c84b938f9a83d467b28da5d3d85f9baafea6c42af0fea7c3b92a96a99c8ac248ace8a4a4b57ba2be9d91d04bb0b18586f964b6b0e1acbb45f3ecac8ad6648a9da191f93ee9e7fdabf43f96afa196f55dbbbbfc99c721e99d9db0db67978f00a9c866f1f1fa97c941abe7a39bd353fcbcaad9e94df3e7a1b0ea5991b5bfd5cb73afbca190ec5db3bae591fc73b3bb8b84fb7e8fb0848cb342b893968ee637e2a3; csrfToken=uWb80v0d-SaW06p9HsaqPMQC"
+    print(report_all_song(cookie))

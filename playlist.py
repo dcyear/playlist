@@ -1,12 +1,10 @@
 import cryptos
-from proxy import PyProxy
 from tqdm import tqdm
 
 from concurrent.futures import ThreadPoolExecutor
 from typing import List
 
-p = PyProxy("66291", bulk_size=500, life=3)
-
+from proxy import p
 
 # 歌单播放
 def play_playlist(cookie, playlist_id: str, proxy):

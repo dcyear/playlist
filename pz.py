@@ -3,12 +3,11 @@ from concurrent.futures import ThreadPoolExecutor
 import requests
 import pandas as pd
 
-from proxy import PyProxy
 from tqdm import tqdm
 
 from utils import request_with_retry
+from proxy import p
 
-p = PyProxy("66291", bulk_size=500, life=3)
 
 uri = "https://zfcxjw.cq.gov.cn/gzf/pczwff/site/cqgzf/queryresultpublic/getSqshjgAction"
 
