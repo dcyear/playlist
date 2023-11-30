@@ -1,27 +1,6 @@
 import requests
 
 
-def getAllRank():
-    uri = "https://lite.y.qq.com/cgi-bin/musicu.fcg"
-    body = {
-        "comm": {
-            "ct": 11,
-            "cv": "1003006",
-            "v": "1003006",
-            "tmeAppID": "qqmusiclight",
-        },
-        "request": {
-            "module": "music.qqmusiclite.MtMusicChartsSvr",
-            "method": "GetAllCharts",
-            "param": {},
-        }
-    }
-    headers = {
-        "User-Agent": "okhttp/3.14.9"
-    }
-    r = requests.post(uri, json=body, headers=headers,timeout=10)
-    return r.json()
-
 
 # topId 4是流行指数榜 62是飙升榜
 # period 2023_22 可不传默认最新
