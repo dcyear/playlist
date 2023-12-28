@@ -5,7 +5,7 @@ import requests
 
 # 酷狗算法
 
-fetchHost = "http://52.81.212.203:3667"
+fetchHost = "http://52.81.109.126:3667"
 
 
 def getSign(params: Dict, body: Dict | str):

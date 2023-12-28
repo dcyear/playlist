@@ -4,7 +4,7 @@ import requests
 
 import utils
 
-fetchHost = "http://52.81.212.203:3667"
+fetchHost = "http://52.81.109.126:3667"
 
 neteaseHost = "https://music.163.com"
 
